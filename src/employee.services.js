@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { basename } from 'path';
 
 const baseURL = '/api/employees';
 
@@ -7,6 +8,13 @@ function findEmployees() {
         .get(`${baseURL}/get`)
         .then( res => res )
         .catch( err => {throw err});
+}
+
+function findSingleEmployee(id) {
+    return axios
+        .get(`${baseURL}/${id}`)
+        .then( res => res)
+        .catch( err => {throw err} );
 }
 
 function createEmployee(body) {
@@ -32,6 +40,7 @@ function deleteEmployee(id) {
 
 export {
     findEmployees,
+    findSingleEmployee,
     createEmployee,
     updateEmployee,
     deleteEmployee

@@ -1,0 +1,29 @@
+.view-wrap {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.view-header {
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #0B4F6C50; }
+  .view-header h2 {
+    width: 50vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 5px; }
+  .view-header div {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.view-body {
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }

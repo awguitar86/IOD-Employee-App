@@ -10,6 +10,14 @@ employeesRouter.get('/get', (req, res) => {
         .catch( err => res.status(500).send(err))
 });
 
+employeesRouter.get('/:id', (req, res) => {
+    const db = getDb();
+    const id = req.params.id;
+    db.get_single_employee([id])
+        .then( user => res.status(200).send(user))
+        .catch( err => res.status(500).send(err))
+});
+
 employeesRouter.post('/create', (req, res) => {
     const db = getDb();
     const { first_name, last_name, email, phone, salary } = req.body;
