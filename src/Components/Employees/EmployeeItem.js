@@ -16,7 +16,7 @@ class EmployeeItem extends Component {
             <td>{lastName}</td>
             <td>{email}</td>
             <td>{phone}</td>
-            <td>{salary}</td>
+            <td>${salary}</td>
             <td><Link to={`/viewemployee/${id}`}>View</Link></td>
         </tr>
     );

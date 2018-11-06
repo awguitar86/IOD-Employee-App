@@ -1,1 +1,3 @@
-SELECT * FROM employees;
+SELECT * FROM employees
+    ORDER BY id
+;

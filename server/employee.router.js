@@ -30,7 +30,7 @@ employeesRouter.put('/update/:id', (req, res) => {
     const db = getDb();
     const id = req.params.id;
     const { first_name, last_name, email, phone, salary } = req.body;
-    db.update_user([id, first_name, last_name, email, phone, salary])
+    db.update_employee([id, first_name, last_name, email, phone, salary])
         .then( promise => res.status(200).send(promise))
         .catch( err => res.send(err) )
 });
@@ -38,7 +38,7 @@ employeesRouter.put('/update/:id', (req, res) => {
 employeesRouter.delete('/delete/:id', (req, res) => {
     const db = getDb();
     const id = req.params.id;
-    db.delete_user([id])
+    db.delete_employee([id])
         .then( () => res.status(200).send() )
         .catch( err => res.send(err) )
 });
