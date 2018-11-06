@@ -25,6 +25,7 @@ class ViewEmployee extends Component {
     this.handleDeleteEmployee = this.handleDeleteEmployee.bind(this);
     this.handleEditEmployee = this.handleEditEmployee.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.cancelEdit = this.cancelEdit.bind(this);
   }
 
   componentDidMount(){
@@ -54,11 +55,25 @@ class ViewEmployee extends Component {
   deleteCloseModal(){
       this.setState({ deleteModalOpen: false });
   }
+  cancelEdit(){
+    let id = this.state.id;
+    findSingleEmployee(id)
+      .then( res => {
+          this.setState({
+            id: res.data[0].id,
+            first_name: res.data[0].first_name,
+            last_name: res.data[0].last_name,
+            email: res.data[0].email,
+            phone: res.data[0].phone,
+            salary: res.data[0].salary
+          });
+      })
+    this.editCloseModal();
+  }
 
   handleEditEmployee(){
-    let { first_name, last_name, email, phone, salary } = this.state;
+    let { id, first_name, last_name, email, phone, salary } = this.state;
     let reqBody = { first_name, last_name, email, phone, salary };
-    let id = this.state.id;
     updateEmployee(id, reqBody)
       .then( res => {
         if( res.status !== 200 ) {
@@ -149,7 +164,7 @@ class ViewEmployee extends Component {
             <input placeholder='Phone' type='text' name='phone' value={this.state.phone} onChange={ e => { this.handleInputChange(e) }} />
             <input placeholder='Salary' type='text' name='salary' value={this.state.salary} onChange={ e => { this.handleInputChange(e) }} />
             <div>
-              <button className='edit-cancel-btn' onClick={this.editCloseModal}>Cancel</button>
+              <button className='edit-cancel-btn' onClick={this.cancelEdit}>Cancel</button>
               <button className='submit-btn' onClick={this.handleEditEmployee}>Submit</button>
             </div>
           </div>

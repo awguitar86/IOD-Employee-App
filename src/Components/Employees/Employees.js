@@ -55,8 +55,15 @@ class Employees extends Component {
   }
 
   closeModal(){
-      this.setState({ modalOpen: false });
-  }
+    this.setState({
+      modalOpen: false,
+      first_name: '',
+      last_name: '',
+      email: '',
+      phone: '',
+      salary: '',
+    });
+}
 
   render() {
     let modalStyle = "display:flex; justify-content:center;";
