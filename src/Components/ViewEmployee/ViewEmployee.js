@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './viewEmployee.css';
-import { findSingleEmployee } from '../../employee.services';
+import { findSingleEmployee, updateEmployee, deleteEmployee } from '../../employee.services';
+import Modal from 'react-modal';
 
 class ViewEmployee extends Component {
   constructor(props){
     super(props);
     this.state = {
-        employee: ''
+        employee: '',
+        editModalOpen: false,
+        deleteModalOpen: false
     }
   }
 
@@ -19,6 +22,19 @@ class ViewEmployee extends Component {
         })
   }
 
+  editOpenModal(){
+    this.setState({ editModalOpen: true });
+  }
+  editCloseModal(){
+      this.setState({ editModalOpen: false });
+  }
+  deleteOpenModal(){
+      this.setState({ deleteModalOpen: true });
+  }
+  deleteOpenModal(){
+      this.setState({ deleteModalOpen: true });
+  }
+
   render() {
       console.log(this.state.employee);
       const { id, first_name, last_name, email, phone, salary } = this.state.employee;
@@ -27,8 +43,8 @@ class ViewEmployee extends Component {
         <div className='view-header'>
             <h2>{first_name}&nbsp;{last_name}</h2>
             <div>
-                <h3>Edit</h3>
-                <h3>Delete</h3>
+                <button className='edit'>Edit</button>
+                <button className='delete'>Delete</button>
             </div>
         </div>
         <div className='view-body'>
@@ -41,6 +57,10 @@ class ViewEmployee extends Component {
                 <p><strong>Salary:</strong> ${salary}</p>
             </div>
         </div>
+
+        <Modal>
+
+        </Modal>
       </div>
     );
   }

@@ -18,9 +18,36 @@
     align-items: center;
     padding-bottom: 5px; }
   .view-header div {
+    width: 150px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center; }
+
+.edit {
+  width: 50px;
+  height: 25px;
+  border: none;
+  border-radius: 4px;
+  background: #145C9E;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition: ease-in-out 0.3s; }
+  .edit:hover {
+    background: #3E79AF; }
+
+.delete {
+  width: 50px;
+  height: 25px;
+  border: none;
+  border-radius: 4px;
+  background: #D8315B;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition: ease-in-out 0.3s; }
+  .delete:hover {
+    background: #DF5678; }
 
 .view-body {
   width: 50vw;
