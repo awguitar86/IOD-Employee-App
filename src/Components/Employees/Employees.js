@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './employees.css';
 import Modal from 'react-modal';
-import { findEmployees, createEmployee, updateEmployee, deleteEmployee } from '../../employee.services';
+import { findEmployees, createEmployee } from '../../employee.services';
 import EmployeeItem from './EmployeeItem';
-import {Link} from 'react-router-dom';
 
 class Employees extends Component {
   constructor(props) {
@@ -31,7 +30,6 @@ class Employees extends Component {
   refresh(){
     findEmployees().then( res => {
       this.setState({ employees: res.data });
-      console.log(res.data);
     });
   }
 
@@ -40,7 +38,6 @@ class Employees extends Component {
     let reqBody = { first_name, last_name, email, phone, salary };
     createEmployee(reqBody)
     .then( res => {
-      console.log(res.data);
       this.refresh();
     })
     .catch( err => {throw err})
@@ -63,7 +60,6 @@ class Employees extends Component {
 
   render() {
     let modalStyle = "display:flex; justify-content:center;";
-    console.log(this.state.employees);
     const employees = this.state.employees;
     const displayEmployees = employees.map(employeeItem => {
       const index = employees.indexOf(employeeItem);

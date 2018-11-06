@@ -39,7 +39,6 @@ class ViewEmployee extends Component {
               phone: res.data[0].phone,
               salary: res.data[0].salary
             });
-            console.log(res.data);
         })
   }
 
@@ -76,7 +75,6 @@ class ViewEmployee extends Component {
                   phone: res.data[0].phone,
                   salary: res.data[0].salary
                 });
-                console.log(res.data);
             })
           this.editCloseModal();
         }
@@ -95,7 +93,6 @@ class ViewEmployee extends Component {
     let id = this.state.id;
     deleteEmployee(id)
       .then( res => {
-        console.log(res.data);
         this.timer = setInterval( this.handleDeleteRedirect.bind(this), 1000 );
       })
       .catch( err => {throw err} );
@@ -107,7 +104,6 @@ class ViewEmployee extends Component {
   }
 
   render() {
-      console.log(this.state);
       const { id, first_name, last_name, email, phone, salary } = this.state;
       let modalStyle = "display:flex; justify-content:center;";
       if(this.state.deleteRedirect){

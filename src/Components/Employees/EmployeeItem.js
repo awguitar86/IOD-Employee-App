@@ -3,10 +3,6 @@ import './employees.css';
 import {Link} from 'react-router-dom';
 
 class EmployeeItem extends Component {
-  constructor(props){
-    super(props);
-  }
-
   render() {
     const { id, firstName, lastName, email, phone, salary } = this.props;
     return (

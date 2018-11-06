@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { basename } from 'path';
 
 const baseURL = '/api/employees';
 
